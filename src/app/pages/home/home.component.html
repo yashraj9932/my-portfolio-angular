@@ -1,0 +1,56 @@
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-intro">
+      <h1 class="hero-title">
+        Hi, I'm <span class="highlight">{{ personalDetails.name }}</span>
+      </h1>
+      <p class="hero-subtitle">{{ personalDetails.tagline }}</p>
+    </div>
+    <div class="hero-description">
+      <p>{{ personalDetails.brand }}</p>
+    </div>
+    <div class="hero-info">
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div class="info-content">
+            <span class="info-label">Location</span>
+            <span class="info-value">{{ personalDetails.location }}</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">💼</div>
+          <div class="info-content">
+            <span class="info-label">Status</span>
+            <span class="info-value">{{ personalDetails.availability }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a routerLink="/portfolio" class="btn btn-primary">
+        <span>View My Work</span>
+        <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <a routerLink="/contact" class="btn btn-secondary">
+        <span>Get In Touch</span>
+        <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div class="hero-image-section">
+    <div class="image-container">
+      <div class="image-glow"></div>
+      <div class="image-background"></div>
+      <img
+        src="assets/about_me.jpg"
+        alt="Yash Raj Goel"
+        class="profile-image"
+      />
+    </div>
+  </div>
+</div>

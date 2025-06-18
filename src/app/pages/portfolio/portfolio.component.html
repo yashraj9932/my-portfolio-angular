@@ -1,0 +1,94 @@
+<div class="portfolio-page">
+  <div class="container">
+    <div class="portfolio-header">
+      <h1 class="page-title">Portfolio</h1>
+      <p class="page-description">My projects and work experience</p>
+    </div>
+
+    <div class="portfolio-tabs">
+      <button 
+        class="tab-button" 
+        [class.active]="activeTab === 'projects'"
+        (click)="setActiveTab('projects')">
+        Projects
+      </button>
+      <button 
+        class="tab-button" 
+        [class.active]="activeTab === 'experience'"
+        (click)="setActiveTab('experience')">
+        Experience
+      </button>
+    </div>
+
+    <div class="portfolio-content">
+      <!-- Projects Tab -->
+      <div class="projects-grid" *ngIf="activeTab === 'projects'">
+        <div class="project-card" *ngFor="let project of projects">
+          <div class="project-image">
+            <img [src]="project.image" [alt]="project.title" class="project-img">
+            <div class="project-overlay">
+              <div class="project-actions">
+                <button class="btn btn-primary" (click)="openLink(project.github)">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                  </svg>
+                  GitHub
+                </button>
+                <button class="btn btn-secondary" (click)="openLink(project.deployed)">
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15,3 21,3 21,9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                  Live Demo
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">{{ project.title }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+            <div class="project-tech">
+              <span class="tech-tag" *ngFor="let tech of project.technologies.split('|')">
+                {{ tech.trim() }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experience Tab -->
+      <div class="experience-grid" *ngIf="activeTab === 'experience'">
+        <div class="experience-card" *ngFor="let exp of experience">
+          <div class="experience-header">
+            <div class="company-logo">
+              <img [src]="exp.image" [alt]="exp.title" class="logo-img">
+            </div>
+            <div class="company-info">
+              <h3 class="company-name">{{ exp.title }}</h3>
+              <p class="position">{{ exp.position }}</p>
+            </div>
+          </div>
+          <div class="experience-content">
+            <p class="experience-description">{{ exp.description }}</p>
+            <div class="experience-tech">
+              <span class="tech-tag" *ngFor="let tech of exp.technologies.split('|')">
+                {{ tech.trim() }}
+              </span>
+            </div>
+            <div class="experience-actions">
+              <button class="btn btn-ghost" (click)="openLink(exp.deployed)">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15,3 21,3 21,9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                Visit Company
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

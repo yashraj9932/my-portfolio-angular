@@ -1,0 +1,20 @@
+<div class="poems-page">
+  <div class="container">
+    <div class="poems-header">
+      <h1 class="page-title">Poems</h1>
+      <p class="page-description">A collection of my creative expressions</p>
+    </div>
+
+    <div class="poems-grid">
+      <div class="poem-card" *ngFor="let poem of poems">
+        <div class="poem-header">
+          <h2 class="poem-title">{{ poem.heading }}</h2>
+          <p class="poem-author">by {{ poem.author }}</p>
+        </div>
+        <div class="poem-content">
+          <pre class="poem-text">{{ poem.poem }}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
