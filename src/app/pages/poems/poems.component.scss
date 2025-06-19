@@ -28,20 +28,41 @@
 }
 
 .poems-grid {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-3xl);
-    max-width: 800px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-2xl);
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 var(--spacing-md);
+
+    // Tablet: 2 columns
+    @media (max-width: 1199px) and (min-width: 769px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+        max-width: 900px;
+    }
+
+    // Mobile: 1 column
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+        padding: 0 var(--spacing-sm);
+        max-width: 600px;
+    }
 
     .poem-card {
         background: var(--bg-secondary);
         border-radius: var(--radius-xl);
-        padding: var(--spacing-3xl);
+        padding: var(--spacing-2xl);
         border: 1px solid var(--border-color);
         transition: all var(--transition-normal);
         position: relative;
         overflow: hidden;
+        height: fit-content;
+
+        @media (max-width: 768px) {
+            padding: var(--spacing-xl);
+        }
 
         &::before {
             content: '';
@@ -61,35 +82,48 @@
 
         .poem-header {
             text-align: center;
-            margin-bottom: var(--spacing-2xl);
-            padding-bottom: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-lg);
             border-bottom: 1px solid var(--border-color);
 
+            @media (max-width: 768px) {
+                margin-bottom: var(--spacing-lg);
+                padding-bottom: var(--spacing-md);
+            }
+
             .poem-title {
-                font-size: 2rem;
+                font-size: 1.75rem;
                 font-weight: 700;
                 color: var(--text-primary);
                 margin-bottom: var(--spacing-sm);
                 line-height: 1.2;
 
+                @media (max-width: 1199px) and (min-width: 769px) {
+                    font-size: 1.5rem;
+                }
+
                 @media (max-width: 768px) {
-                    font-size: 1.75rem;
+                    font-size: 1.5rem;
                 }
             }
 
             .poem-author {
                 color: var(--accent-color);
                 font-weight: 600;
-                font-size: 1rem;
+                font-size: 0.95rem;
                 font-style: italic;
+
+                @media (max-width: 768px) {
+                    font-size: 0.9rem;
+                }
             }
         }
 
         .poem-content {
             .poem-text {
                 font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-                font-size: 1.125rem;
-                line-height: 1.8;
+                font-size: 1rem;
+                line-height: 1.7;
                 color: var(--text-secondary);
                 white-space: pre-wrap;
                 word-wrap: break-word;
@@ -100,9 +134,14 @@
                 font-weight: 400;
                 letter-spacing: 0.01em;
 
+                @media (max-width: 1199px) and (min-width: 769px) {
+                    font-size: 0.95rem;
+                    line-height: 1.6;
+                }
+
                 @media (max-width: 768px) {
-                    font-size: 1rem;
-                    line-height: 1.7;
+                    font-size: 0.95rem;
+                    line-height: 1.6;
                 }
             }
         }
